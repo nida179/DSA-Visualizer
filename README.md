@@ -36,4 +36,4 @@ An interactive web-based visualizer for Data Structures and Algorithms, built wi
 2. Open `index.html` in your browser
 
 ## Author
-Nida — Computer Science Studen
+Nida — Computer Science Student
