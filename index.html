@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nida's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Josefin+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS VARIABLES (your color palette) ===== */
+    :root {
+      --cream: #faf6f1;
+      --blush: #e8d5c4;
+      --rose: #c9967a;
+      --deep: #3b2a2a;
+      --muted: #9e8070;
+      --white: #ffffff;
+    }
+
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ===== BODY ===== */
+    body {
+      background-color: var(--cream);
+      font-family: 'Josefin Sans', sans-serif;
+      color: var(--deep);
+      min-height: 100vh;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;          /* stays at top when scrolling */
+      top: 0;
+      width: 100%;
+      padding: 22px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(250, 246, 241, 0.92);
+      backdrop-filter: blur(8px);   /* frosted glass effect */
+      border-bottom: 1px solid var(--blush);
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 3px;
+      color: var(--deep);
+      text-transform: uppercase;
+    }
+
+    .links {
+      display: flex;
+      gap: 40px;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 300;
+      transition: color 0.3s ease;   /* smooth color change on hover */
+    }
+
+    .links a:hover {
+      color: var(--rose);
+    }
+
+    /* ===== PAGE LAYOUT ===== */
+    /* This creates a 3-column layout:
+       [about sidebar] [center content] [empty space] */
+    .page-wrapper {
+      display: flex;
+      min-height: 100vh;
+      padding-top: 70px;   /* pushes content below fixed navbar */
+    }
+
+    /* ===== LEFT SIDEBAR (About) ===== */
+    .sidebar {
+      width: 280px;
+      min-width: 280px;       /* won't shrink smaller */
+      background-color: var(--deep);
+      padding: 70px 35px;
+      display: flex;
+      flex-direction: column;  /* stacks items vertically */
+      gap: 30px;
+      position: sticky;        /* sidebar stays while page scrolls */
+      top: 70px;
+      height: calc(100vh - 70px);
+    }
+
+    .sidebar-tag {
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+
+    .sidebar h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .sidebar p {
+      font-size: 12px;
+      line-height: 2;
+      color: var(--blush);
+      font-weight: 200;
+      letter-spacing: 0.5px;
+    }
+
+    /* Decorative line in sidebar */
+    .sidebar-line {
+      width: 40px;
+      height: 1px;
+      background-color: var(--rose);
+    }
+
+    .sidebar-skills {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 6px 12px;
+      border: 1px solid #5a3f3f;
+      border-radius: 2px;
+      width: fit-content;
+    }
+
+    /* ===== MAIN CONTENT (Center) ===== */
+    .main-content {
+      flex: 1;                  /* takes up remaining space */
+      display: flex;
+      flex-direction: column;
+      align-items: center;      /* centers everything horizontally */
+      padding: 80px 60px;
+      gap: 80px;
+    }
+
+    /* ===== HOME HERO SECTION ===== */
+    #home {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding-top: 40px;
+    }
+
+    .home-tag {
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+
+    #home h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      font-weight: 300;
+      color: var(--deep);
+      line-height: 1.1;
+      letter-spacing: 2px;
+    }
+
+    #home h1 em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    #home h4 {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 200;
+    }
+
+    /* Decorative ornament */
+    .ornament {
+      font-size: 24px;
+      color: var(--blush);
+      margin: 10px 0;
+    }
+
+    /* ===== DIVIDER LINE ===== */
+    .divider {
+      width: 100%;
+      max-width: 500px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--blush), transparent);
+    }
+
+    /* ===== CONTACT / EMAIL SECTION ===== */
+    #contact {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      width: 100%;
+      max-width: 520px;
+    }
+
+    #contact h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--deep);
+    }
+
+    #contact p {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* Email input wrapper */
+    .email-wrapper {
+      display: flex;
+      flex-direction: column;   /* input on top, button below */
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .email-wrapper input {
+      width: 100%;
+      padding: 16px 22px;
+      border: 1px solid var(--blush);
+      border-radius: 2px;
+      background-color: var(--white);
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--deep);
+      outline: none;              /* removes blue outline on click */
+      transition: border-color 0.3s ease;
+    }
+
+    /* When user clicks the input box */
+    .email-wrapper input:focus {
+      border-color: var(--rose);
+    }
+
+    .email-wrapper input::placeholder {
+      color: var(--muted);
+      letter-spacing: 2px;
+    }
+
+    .email-wrapper button {
+      padding: 14px 50px;
+      background-color: var(--deep);
+      color: var(--cream);
+      border: none;
+      border-radius: 2px;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .email-wrapper button:hover {
+      background-color: var(--rose);
+      transform: translateY(-2px);   /* tiny lift effect on hover */
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--muted);
+      text-transform: uppercase;
+      border-top: 1px solid var(--blush);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Nida</div>
+    <div class="links">
+      <a href="#home">Home</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- PAGE WRAPPER: sidebar + main content side by side -->
+  <div class="page-wrapper">
+
+    <!-- LEFT SIDEBAR = About Section -->
+    <aside class="sidebar" id="about">
+      <span class="sidebar-tag">About Me</span>
+      <div class="sidebar-line"></div>
+      <h2>Hello,<br>I'm Nida</h2>
+      <p>
+        A passionate computer science student exploring the world of data structures, algorithms, and elegant design.
+      </p>
+      <div class="sidebar-line"></div>
+      <div class="sidebar-skills">
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Data Structures</span>
+        <span class="skill-tag">Algorithms</span>
+        <span class="skill-tag">HTML & CSS</span>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT = Home + Email centered -->
+    <div class="main-content">
+
+      <!-- HOME SECTION -->
+      <section id="home">
+        <span class="home-tag">Welcome</span>
+        <h1>Nida's<br><em>Portfolio</em></h1>
+        <div class="ornament">✦</div>
+        <h4>Student · Developer · Creator</h4>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- CONTACT / EMAIL SECTION -->
+      <section id="contact">
+        <h2>Get in Touch</h2>
+        <p>Drop your email and I'll reach out</p>
+        <div class="email-wrapper">
+          <input type="email" placeholder="Your email address..." />
+          <button>Send Message</button>
+        </div>
+      </section>
+
+      <footer>© 2026 Nida · All Rights Reserved</footer>
+
+    </div>
+  </div>
+
+</body>
+</html>

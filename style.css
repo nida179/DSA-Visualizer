@@ -1,0 +1,74 @@
+/* ===== WHOLE PAGE ===== */
+body {
+    margin: 0;               /* removes default white gap around edges */
+    font-family: Arial, sans-serif;  /* sets the font for everything */
+    background-color: #460404;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+    background-color: #1e1b1b;  /* dark background */
+    display: flex;           /* puts logo and links side by side */
+    justify-content: space-between; /* logo on left, links on right */
+    align-items: center;     /* vertically centers them */
+    padding: 15px 30px;      /* space inside the navbar */
+}
+
+/* ===== LOGO ===== */
+.logo {
+    color: rgb(130, 17, 115);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ===== NAV LINKS ===== */
+.links {
+    display: flex;    /* puts Home, About, Contact in a row */
+    gap: 20px;        /* space between each link */
+}
+
+.links a {
+    color: rgb(6, 41, 22);
+    text-decoration: none;  /* removes the underline */
+    font-size: 16px;
+}
+
+.links a:hover {
+    color: #f0a500;   /* changes color when mouse hovers over it */
+}
+
+/* ===== SECTIONS ===== */
+.section {
+    padding: 60px 30px;   /* space inside each section */
+}
+
+#home {
+    background-color: #503c2b;
+}
+
+#about {
+    background-color: #224551;
+}
+
+#contact {
+    background-color: #03acbe;
+}
+
+/* ===== HEADINGS ===== */
+h1 {
+    font-size: 40px;
+    color: #333;
+}
+
+h4 {
+    color: #777;    /* light grey color */
+    font-weight: normal;
+}
+
+/* ===== EMAIL INPUT ===== */
+input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #121111;
+    border-radius: 5px;   /* rounded corners */
+}
