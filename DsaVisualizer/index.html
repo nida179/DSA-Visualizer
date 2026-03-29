@@ -11,18 +11,18 @@
     <div class="layout">
         <div class="sidebar">
             <h3>Sorting</h3>
-            <button class="algo-btn">Bubble Sort</button>
-            <button class="algo-btn">Selection Sort</button>
+            <button class="algo-btn" onclick="bubbleSort()">Bubble Sort</button>
+            <button class="algo-btn" onclick="selectionSort()">Selection Sort</button>
             <button class="algo-btn">Insertion Sort</button>
             <button class="algo-btn">Merge Sort</button>
             <button class="algo-btn">Quick Sort</button>
         </div>
     
     <div class="main">
-        <h1>Bubble Sort</h1>
-        <p>Repeatedly swaps adjacent elements if they are in wrong order</p>
+        <h1 id="algo-btn"></h1>
+        <p id="algo-desc"></p>
     <button onclick="generateArray()">Generate Array</button>
-    <button onclick="bubbleSort()">Sort</button>
+    
     <div class="container">
             <div class="bar" id="bar0" style="height: 100px;"></div>
             <div class="bar" id="bar1" style="height: 50px;"></div>
