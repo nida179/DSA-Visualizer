@@ -18,8 +18,8 @@ An interactive web-based visualizer for Data Structures and Algorithms, built wi
 
 ## Algorithms (In Progress)
 - [x] Bubble Sort
-- [ ] Selection Sort
-- [ ] Insertion Sort
+- [x] Selection Sort
+- [x] Insertion Sort
 - [ ] Merge Sort
 - [ ] Quick Sort
 - [ ] Linear Search
