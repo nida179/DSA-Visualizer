@@ -138,3 +138,188 @@ function selectionSort(){
     }
 }, steps.length * 300 + 300);
 }
+function insertionSort(){
+    document.getElementById("algo-btn").innerText = "Insertion Sort";
+    document.getElementById("algo-desc").innerText = "The Insertion sort works by assuming the 1st element as sorted and then compare it with next elements and if we find other elements smaller then we insert that in its correct position";
+
+    let n = arr.length;
+    let steps = [];
+
+    for(let i = 1; i < n; i++){
+    let hold = arr[i];
+    let gap = i;
+
+    while(gap > 0 && hold < arr[gap-1]){
+        arr[gap] = arr[gap-1];
+        gap--;
+        steps.push([gap, gap+1, [...arr]]); // save snapshot
+    }
+    arr[gap] = hold;
+    steps.push([gap, i, [...arr]]); // save snapshot
+}
+    for (let k = 0; k < steps.length; k++) {
+        setTimeout(function(k) {
+            return function() {
+            let [a, b, snapshot] = steps[k];
+            for (let x = 0; x < 8; x++) {
+                document.getElementById("bar" + x).style.height = snapshot[x] + "px";
+                document.getElementById("bar" + x).style.backgroundColor = "rgb(131, 78, 115)";
+        }
+        document.getElementById("bar" + a).style.backgroundColor = "red";
+        document.getElementById("bar" + b).style.backgroundColor = "yellow";
+    }   
+}(k), k * 300); // Waits until ALL steps are done (total time = steps × 300ms), then resets all bars back to steelblue.
+}  
+        // Green Animation 
+    setTimeout(function() {
+    for (let i = 0; i < 8; i++) {
+        setTimeout(function(i) {
+            return function() {
+                document.getElementById("bar" + i).style.backgroundColor = "steelblue";
+                document.getElementById("message").innerText = "The data is now sorted";
+            }
+        }(i), i * 100);
+    }
+}, steps.length * 300 + 300);
+}
+
+function merge(arr,left,mid,right,steps){
+    let i = left;
+    let j = mid+1;
+    let k = 0;
+    let temp = [];
+
+    while(i<=mid && j<=right){
+        if(arr[i]<arr[j]){
+            temp[k] = arr[i];
+            i++;
+        } else {
+            temp[k] = arr[j];
+            j++;
+        }
+        k++;
+    }
+    while(i<=mid){
+        temp[k] = arr[i];
+        k++;
+        i++;
+    }
+    while(j<=right){
+        temp[k] = arr[j];
+        k++;
+        j++;
+    }
+    for(let i=0;i<k;i++){
+        arr[left+i] = temp[i];
+    }
+    steps.push([left,right,[...arr]])
+}
+function mergeSort(arr, left, right,steps){
+   if(left>=right)  return;
+
+   let mid = Math.floor((left+right) /2);
+   mergeSort(arr,left,mid,steps); // left half
+    mergeSort(arr,mid+1,right,steps); // right half
+    merge(arr,left,mid,right,steps);  
+}
+function mergeSortMain(){
+    document.getElementById("algo-btn").innerText = "Merge Sort";
+    document.getElementById("algo-desc").innerText = "Divides array into halves, sorts each half recursively, then merges them";
+    
+    let steps = [];
+    mergeSort(arr, 0, arr.length - 1, steps);
+
+    // animation — same snapshot approach as insertion sort
+    for(let k = 0; k < steps.length; k++){
+        setTimeout(function(k){
+            return function(){
+                let [left, right, snapshot] = steps[k];
+                for(let x = 0; x < 8; x++){
+                    document.getElementById("bar" + x).style.height = snapshot[x] + "px";
+                    document.getElementById("bar" + x).style.backgroundColor = "rgb(131, 78, 115)";
+                }
+                // highlight the merged section
+                for(let x = left; x <= right; x++){
+                    document.getElementById("bar" + x).style.backgroundColor = "red";
+                }
+            }
+        }(k), k * 300);
+    }
+
+    // green animation
+    setTimeout(function(){
+        for(let i = 0; i < 8; i++){
+            setTimeout(function(i){
+                return function(){
+                    document.getElementById("bar" + i).style.backgroundColor = "steelblue";
+                    document.getElementById("message").innerText = "The data is now sorted";
+                }
+            }(i), i * 100);
+        }
+    }, steps.length * 300 + 300);
+}
+
+function partition(arr,left,right,steps){
+    let pivot = arr[right];
+    let ind = left-1;
+    for(let i=left;i<right;i++){
+        if(arr[i]<pivot){
+            ind++;
+            let temp = arr[i];
+            arr[i] = arr[ind];
+            arr[ind] = temp;
+            steps.push([ind, i, [...arr],right]); // after each swap
+        }
+    }
+    ind++;
+    let temp = arr[right];
+    arr[right] = arr[ind];
+    arr[ind] = temp;
+    steps.push([ind, right, [...arr], ind]); // added pivot index at the end
+    return ind;
+}
+function quickSort(arr,left,right,steps){
+    if(left>right) return;
+
+    let piv = partition(arr,left,right,steps);
+    quickSort(arr,left,piv-1,steps);
+    quickSort(arr,piv+1,right,steps);
+}
+
+function quickSortMain(){
+    document.getElementById("algo-btn").innerText = "Quick Sort";
+    document.getElementById("algo-desc").innerText = "It picks an element as a pivot and partition the array into two halves (left & right), sorts each half recursively, then merges them";
+    
+    let steps = [];
+    quickSort(arr, 0, arr.length - 1, steps);
+
+    // animation — same snapshot approach as insertion sort
+    for(let k = 0; k < steps.length; k++){
+        
+        setTimeout(function(k){
+            return function(){
+                let [a, b, snapshot, pivotIndex] = steps[k];
+                for(let x = 0; x < 8; x++){
+                document.getElementById("bar" + x).style.height = snapshot[x] + "px";
+                document.getElementById("bar" + x).style.backgroundColor = "rgb(131, 78, 115)";
+    }
+    
+    // then color AFTER reset
+        document.getElementById("bar" + pivotIndex).style.backgroundColor = "orange";
+        document.getElementById("bar" + a).style.backgroundColor = "red";
+            }
+        }(k), k * 300);
+    }
+
+    // green animation
+    setTimeout(function(){
+        for(let i = 0; i < 8; i++){
+            setTimeout(function(i){
+                return function(){
+                    document.getElementById("bar" + i).style.backgroundColor = "steelblue";
+                    document.getElementById("message").innerText = "The data is now sorted";
+                }
+            }(i), i * 100);
+        }
+    }, steps.length * 300 + 300);
+}
