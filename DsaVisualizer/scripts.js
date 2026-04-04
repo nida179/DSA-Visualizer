@@ -1,5 +1,21 @@
 let arr = []; // global array which stores the height of all bars 
+let currentSearch = "linear"; // default
 
+function getStarted(){
+    document.getElementById("landing").style.display = "none";
+    document.getElementById("layout-div").style.display = "flex";
+}
+let text = "Welcome to DSA Visualizer! This website is designed to help you understand Data Structures and Algorithms through interactive animations.";
+let index = 0;
+
+function typeWriter(){
+    if(index < text.length){
+        document.getElementById("typewriter").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 30);
+    }
+}
+typeWriter();
 function generateArray(){
     arr = []; //Clears the array first so old values don't pile up on repeated clicks.
     for (let i = 0; i < 8; i++) {
@@ -7,9 +23,9 @@ function generateArray(){
         //  Math.floor removes the decimal, +10 ensures minimum height of 10px.
         let randomHeight = Math.floor(Math.random() * 300) + 10;
         let bar = document.getElementById("bar" + i);
-
         // Sets the bar's visual height AND saves the number into arr.
         bar.style.height = randomHeight + "px";
+        bar.innerHTML = randomHeight; // shows the number inside the bar
         arr.push(randomHeight);
     }
 }
@@ -323,3 +339,155 @@ function quickSortMain(){
         }
     }, steps.length * 300 + 300);
 }
+
+function runSearch(){
+    if(currentSearch == "linear"){
+        linearSearch();
+    } else {
+        binarySearch();
+    }
+}
+
+function showLinearSearch(){
+     currentSearch = "linear"; // default
+
+    document.getElementById("search-panel").style.display = "flex";
+    document.getElementById("algo-btn").innerText = "Linear Search";
+    document.getElementById("algo-desc").innerText = "It linearly checks the array and if the value is found it returns that value";
+    document.getElementById("message").innerText = "";
+    for(let x = 0; x < 8; x++){
+        document.getElementById("bar" + x).style.backgroundColor = "rgb(131, 78, 115)";
+    }
+}
+
+function linearSearch(){
+
+    
+    // read current bar values directly from what's displayed
+    arr = [];
+    for(let i = 0; i < 8; i++){
+     arr.push(Number(document.getElementById("bar" + i).innerHTML));
+    }
+     // reset message
+
+    document.getElementById("message").innerText = "";
+    
+    // reset bar colors
+    for(let x = 0; x < 8; x++){
+        document.getElementById("bar" + x).style.backgroundColor = "rgb(131, 78, 115)";
+    }
+    let target = Number(document.getElementById("searchValue").value);
+    
+    document.getElementById("algo-btn").innerText = "Linear Search";
+    document.getElementById("algo-desc").innerText = "It linearly checks the array and if the value is found it returns that value";
+    
+    let steps = [];
+    
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] == target){
+            steps.push([i, true]);
+            break;
+        } else {
+            steps.push([i, false]);
+        }
+    }
+    
+    for(let k = 0; k < steps.length; k++){
+        setTimeout(function(k){
+            return function(){
+                let [i, isFound] = steps[k];
+                
+                for(let x = 0; x < 8; x++){
+                    document.getElementById("bar" + x).style.backgroundColor = "rgb(131, 78, 115)";
+                }
+                
+                if(isFound){
+                    document.getElementById("bar" + i).style.backgroundColor = "green";
+                    document.getElementById("message").innerText = "Value found at index " + i + "!";
+                } else {
+                    document.getElementById("bar" + i).style.backgroundColor = "red";
+                    document.getElementById("message").innerText = "Searching...";
+                }
+            }
+        }(k), k * 500);
+    }
+    setTimeout(function(){
+    let found = steps[steps.length - 1][1];
+    if(!found){
+        document.getElementById("message").innerText = "Value not found!";
+    }
+}, steps.length * 500 + 100);
+}
+
+// called from sidebar
+function showBinarySearch(){
+     currentSearch = "binary"; // default
+
+    document.getElementById("search-panel").style.display = "flex";
+    document.getElementById("algo-btn").innerText = "Binary Search";
+    document.getElementById("algo-desc").innerText = "Works on sorted arrays, divides the array in half each time to find the target";
+    document.getElementById("message").innerText = "";
+    for(let x = 0; x < 8; x++){
+        document.getElementById("bar" + x).style.backgroundColor = "rgb(131, 78, 115)";
+    }
+}
+
+function binarySearch(){
+    document.getElementById("search-panel").style.display = "flex";
+    document.getElementById("algo-btn").innerText = "Binary Search";
+    document.getElementById("algo-desc").innerText = "Works on sorted arrays, divides the array in half each time to find the target";
+
+    arr = [];
+    for(let i = 0; i < 8; i++){
+        arr.push(Number(document.getElementById("bar" + i).innerHTML));
+    }
+
+    let target = Number(document.getElementById("searchValue").value);
+    let l = 0, r = arr.length - 1;
+    let steps = [];
+
+    while(l <= r){
+        let mid = Math.floor((l + r) / 2);
+        if(arr[mid] == target){
+            steps.push([mid, true]);
+            break;
+        } else if(target > arr[mid]){
+            steps.push([mid, false]);
+            l = mid + 1;
+        } else {
+            steps.push([mid, false]);
+            r = mid - 1;
+        }
+    }
+
+
+    // animation — same as linear search
+    // copy from linearSearch and paste here!
+
+    for(let k = 0; k < steps.length; k++){
+        setTimeout(function(k){
+            return function(){
+                let [i, isFound] = steps[k];
+                
+                for(let x = 0; x < 8; x++){
+                    document.getElementById("bar" + x).style.backgroundColor = "rgb(131, 78, 115)";
+                }
+                
+                if(isFound){
+                    document.getElementById("bar" + i).style.backgroundColor = "green";
+                    document.getElementById("message").innerText = "Value found at index " + i + "!";
+                } else {
+                    document.getElementById("bar" + i).style.backgroundColor = "red";
+                    document.getElementById("message").innerText = "Searching...";
+                }
+            }
+        }(k), k * 500);
+    }
+    setTimeout(function(){
+    let found = steps[steps.length - 1][1];
+    if(!found){
+        document.getElementById("message").innerText = "Value not found!";
+    }
+}, steps.length * 500 + 100);
+}
+    

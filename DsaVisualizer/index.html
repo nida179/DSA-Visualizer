@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    
 </head>
+
 <body>
-    <div class="layout">
+    <div class="landing" id="landing">
+    <h1 class="landing-title">DSA Visualizer</h1>
+    <p class="landing-subtitle" id="typewriter"></p>
+    <button onclick="getStarted()">Get Started</button>
+    </div>
+    <div class="layout" id="layout-div">
         <div class="sidebar">
             <h3>Sorting</h3>
             <button class="algo-btn" onclick="bubbleSort()">Bubble Sort</button>
@@ -16,25 +21,42 @@
             <button class="algo-btn" onclick="insertionSort()">Insertion Sort</button>
             <button class="algo-btn" onclick="mergeSortMain()">Merge Sort</button>
             <button class="algo-btn" onclick="quickSortMain()">Quick Sort</button>
+
+
+            <h3>Searching</h3>
+            <button class="algo-btn" onclick="showLinearSearch()">Linear Search</button>
+            <button class="algo-btn" onclick="showBinarySearch()">Binary Search</button>
         </div>
-    
-    <div class="main">
-        <h1 id="algo-btn"></h1>
-        <p id="algo-desc"></p>
-    <button onclick="generateArray()">Generate Array</button>
-    
+
+        <div class="main">
+    <div class="top-bar">
+        <div></div>
+        <div class="title-section">
+            <h1 id="algo-btn"></h1>
+            <p id="algo-desc"></p>
+        </div>
+        <button onclick="generateArray()">Generate Array</button>
+    </div>
+
     <div class="container">
-            <div class="bar" id="bar0" style="height: 100px;"></div>
-            <div class="bar" id="bar1" style="height: 50px;"></div>
-            <div class="bar" id="bar2" style="height: 80px;"></div>
-            <div class="bar" id="bar3" style="height: 20px;"></div>
-            <div class="bar" id="bar4" style="height: 70px;"></div>
-            <div class="bar" id="bar5" style="height: 90px;"></div>
-            <div class="bar" id="bar6" style="height: 35px;"></div>
-            <div class="bar" id="bar7" style="height: 69px;"></div>
-           </div>
-           <p id="message"></p>
-        </div>
+        <div class="bar" id="bar0" style="height: 100px;"></div>
+        <div class="bar" id="bar1" style="height: 50px;"></div>
+        <div class="bar" id="bar2" style="height: 80px;"></div>
+        <div class="bar" id="bar3" style="height: 20px;"></div>
+        <div class="bar" id="bar4" style="height: 70px;"></div>
+        <div class="bar" id="bar5" style="height: 90px;"></div>
+        <div class="bar" id="bar6" style="height: 35px;"></div>
+        <div class="bar" id="bar7" style="height: 69px;"></div>
+    </div>
+
+    
+    <div class="search-panel" id="search-panel">
+    <input type="number" id="searchValue" placeholder="Enter value to search">
+    <button onclick="runSearch()">Search</button>
+    </div>
+
+    <p id="message"></p>
+</div>
     </div>
     <script src="scripts.js"></script>
 </body>
