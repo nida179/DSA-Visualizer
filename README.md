@@ -22,8 +22,8 @@ An interactive web-based visualizer for Data Structures and Algorithms, built wi
 - [x] Insertion Sort
 - [x] Merge Sort
 - [x] Quick Sort
-- [ ] Linear Search
-- [ ] Binary Search
+- [x] Linear Search
+- [x] Binary Search
 - [ ] Linked List Visualization
 - [ ] BST Visualization
 - [ ] Graph Traversal (BFS & DFS)
