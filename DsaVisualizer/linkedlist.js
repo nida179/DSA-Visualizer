@@ -89,12 +89,10 @@ function searchNode(){
 }
 function displayList(){
     let display = document.getElementById("list-display");
-    display.innerHTML = ""; // clear first
+    display.innerHTML = ""; 
     
     let current = head;
     while(current != null){
-        // create a box showing current.data
-        // add an arrow
         display.innerHTML += "<div class='node'>" + current.data + "</div>";
         display.innerHTML += "<span>→</span>";
         current = current.next;
