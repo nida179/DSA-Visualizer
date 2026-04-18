@@ -24,14 +24,14 @@ An interactive web-based visualizer for Data Structures and Algorithms, built wi
 - [x] Quick Sort
 - [x] Linear Search
 - [x] Binary Search
-- [ ] Linked List Visualization
+- [x] Linked List Visualization
 - [ ] BST Visualization
 - [ ] Graph Traversal (BFS & DFS)
 
 ## How to Run
 1. Clone the repository
    ```
-   git clone https://github.com/your-username/DSA-Visualizer.git
+   git clone https://github.com/nida179/DSA-Visualizer.git
    ```
 2. Open `index.html` in your browser
 
