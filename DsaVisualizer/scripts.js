@@ -72,9 +72,15 @@ function bubbleSort(){
                 
                 // Only swap visually if a swap actually happened in the algorithm.
                 if (isSwap) {
+
                     let temp = barA.style.height;
                     barA.style.height = barB.style.height;
                     barB.style.height = temp;
+
+                    // also swap the numbers!
+                    let tempText = barA.innerHTML;
+                    barA.innerHTML = barB.innerHTML;
+                    barB.innerHTML = tempText;
                 }
             }
         }(k), k * 300); // Waits until ALL steps are done (total time = steps × 300ms), then resets all bars back to steelblue.
@@ -138,6 +144,11 @@ function selectionSort(){
                     barA.style.height = barB.style.height;
                     barB.style.height = temp;
                     barB.style.backgroundColor = "Yellow";
+
+                    // also swap the numbers!
+                    let tempText = barA.innerHTML;
+                    barA.innerHTML = barB.innerHTML;
+                    barB.innerHTML = tempText;
                 }
             }
         }(k), k * 300); // Waits until ALL steps are done (total time = steps × 300ms), then resets all bars back to steelblue.
@@ -180,6 +191,7 @@ function insertionSort(){
             for (let x = 0; x < 8; x++) {
                 document.getElementById("bar" + x).style.height = snapshot[x] + "px";
                 document.getElementById("bar" + x).style.backgroundColor = "rgb(131, 78, 115)";
+                document.getElementById("bar" + x).innerHTML = snapshot[x];
         }
         document.getElementById("bar" + a).style.backgroundColor = "red";
         document.getElementById("bar" + b).style.backgroundColor = "yellow";
@@ -253,6 +265,7 @@ function mergeSortMain(){
                 for(let x = 0; x < 8; x++){
                     document.getElementById("bar" + x).style.height = snapshot[x] + "px";
                     document.getElementById("bar" + x).style.backgroundColor = "rgb(131, 78, 115)";
+                    document.getElementById("bar" + x).innerHTML = snapshot[x];
                 }
                 // highlight the merged section
                 for(let x = left; x <= right; x++){
@@ -318,6 +331,7 @@ function quickSortMain(){
                 for(let x = 0; x < 8; x++){
                 document.getElementById("bar" + x).style.height = snapshot[x] + "px";
                 document.getElementById("bar" + x).style.backgroundColor = "rgb(131, 78, 115)";
+                document.getElementById("bar" + x).innerHTML = snapshot[x];
     }
     
     // then color AFTER reset
