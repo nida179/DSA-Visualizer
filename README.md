@@ -24,8 +24,8 @@ An interactive web-based visualizer for Data Structures and Algorithms, built wi
 - [x] Quick Sort
 - [x] Linear Search
 - [x] Binary Search
-- [ ] Linked List Visualization
-- [ ] BST Visualization
+- [x] Linked List Visualization
+- [x] BST Visualization
 - [ ] Graph Traversal (BFS & DFS)
 
 ## How to Run

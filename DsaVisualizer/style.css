@@ -35,6 +35,9 @@ body{
     display: none;
     min-height: 100vh;
 }
+.layout.active {
+    display: flex;
+}
 .node {
     width: 60px;
     height: 60px;
@@ -42,19 +45,59 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 16px;
     border-radius: 8px;
 }
+
 #list-display {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+    display: flex; 
+    align-items: flex-start;
     justify-content: center;
     gap: 5px;
+    padding: 20px;
     margin-top: 30px;
+    overflow-x: auto;
     width: 100%;
+}
+.tree-node {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(123, 3, 87);
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 50%;
+    line-height: 50px;
+    margin: auto;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
+
+.children {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    padding-top: 20px;
+    position: relative;
+    margin-top: 20px;
+}
+.child-slot {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
 }
 #list-display span {
     color: white;
@@ -78,6 +121,8 @@ body{
     min-height: 100vh;
     flex-direction: column;
     gap: 10px;
+     box-sizing: border-box;
+    flex-shrink: 0;
 }
 .sidebar h3 {
     margin-top: 30px;
@@ -95,6 +140,7 @@ body{
     padding: 10px 15px;
     cursor: pointer;
     font-size: 14px;
+    margin-bottom: 0;   
 }
 
 .algo-btn:hover {
@@ -109,6 +155,7 @@ body{
     align-items: center;
     overflow-y: auto;
     justify-content: flex-start;
+    min-width: 0;    
 }
 .search-panel {
     display: none;

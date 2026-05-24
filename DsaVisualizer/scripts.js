@@ -167,7 +167,7 @@ function selectionSort(){
 }
 function insertionSort(){
     document.getElementById("algo-btn").innerText = "Insertion Sort";
-    document.getElementById("algo-desc").innerText = "The Insertion sort works by assuming the 1st element as sorted and then compare it with next elements and if we find other elements smaller then we insert that in its correct position";
+    document.getElementById("algo-desc").innerText = "The Insertion sort works by assuming the 1st element as sorted and then\n compare it with next elements and if we find other elements smaller then we insert that in its correct position";
 
     let n = arr.length;
     let steps = [];
