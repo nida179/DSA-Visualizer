@@ -5,6 +5,14 @@ An interactive web-based visualizer for Data Structures and Algorithms, built wi
 ## Live Demo
 > Coming soon
 
+## Preview
+
+### Landing page
+![Landing Page](assets/landing.png)
+
+### Visualizer
+![Visualizer](assets/visualizer.png)
+
 ## Features
 - Bubble Sort animation with step-by-step visualization
 - Color-coded feedback — red for comparisons, green for sorted elements
