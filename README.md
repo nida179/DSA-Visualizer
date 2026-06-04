@@ -11,7 +11,7 @@ An interactive web-based visualizer for Data Structures and Algorithms, built wi
 ![Landing Page](assets/landing.png)
 
 ### Visualizer
-![Visualizer](assets/visualizer.png)
+![Visualizer](assets/Visualizer.png)
 
 ## Features
 - Bubble Sort animation with step-by-step visualization
