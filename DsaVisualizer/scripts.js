@@ -62,7 +62,7 @@ function bubbleSort(){
                 // This is called destructuring — it unpacks the array [j, j+1, true/false] into three separate variables in one line.
                 let [a, b, isSwap] = steps[k];
                 for (let x = 0; x < 8; x++) {
-                document.getElementById("bar" + x).style.backgroundColor = "rgb(131, 78, 115)";
+                document.getElementById("bar" + x).style.backgroundColor = "rgb(158, 114, 145)";
                 }
             // then highlight just the two
                 let barA = document.getElementById("bar" + a);

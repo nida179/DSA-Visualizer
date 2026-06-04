@@ -1,7 +1,7 @@
 body{
-    background-color: #0f0f0f;
+    background-color: #0f0826;
     text-align: center;
-    color: white;
+    color: rgb(255, 255, 255);
     margin: 0;
     padding: 0;
 }
@@ -16,13 +16,13 @@ body{
 
 .landing-title {
     font-size: 60px;
-    color: rgb(141, 41, 122);
+    color: rgb(162, 139, 139);
     animation: fadeIn 1.5s ease-in-out;
 }
 
 .landing-subtitle {
     font-size: 18px;
-    color: #888;
+    color: #b5acac;
     max-width: 600px;
     text-align: center;
 }
@@ -100,13 +100,13 @@ body{
     justify-content: center;
 }
 #list-display span {
-    color: white;
+    color: rgb(245, 243, 243);
     font-size: 20px;
 }
 .bar {
     width: 60px;
-    background-color: rgb(131, 78, 115);
-    color: rgb(3, 0, 1);
+    background-color: rgb(148, 116, 140);
+    color: rgb(0, 0, 0);
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -126,7 +126,7 @@ body{
 }
 .sidebar h3 {
     margin-top: 30px;
-    color: rgb(141, 41, 122);
+    color: rgb(116, 103, 110);
     font-size: 14px;
     letter-spacing: 1px;
 }
@@ -203,7 +203,7 @@ body{
     height: 200px;
     flex: 1;
     width: 100%;
-    border: 5px solid #0f0f0f;
+    border: 5px solid #0f0826;
     display: flex;
     align-items: flex-end;
     justify-content: center;

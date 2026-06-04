@@ -11,6 +11,10 @@ function insert() {
 
     let value = Number(input);
 
+    if (search(head, value)) {
+        document.getElementById("message").innerText = value + " already exists!";
+        return;
+    }
     let node = {
         data: value,
         left: null,
@@ -57,7 +61,6 @@ function insertNode(root, node) {
             insertNode(root.right, node);
 
         }
-
     }
 }
 
@@ -74,11 +77,11 @@ function displayTree() {
 
     function calcPos(node, level, left, right) {
         if (!node) return;
-        let x = (left + right) / 2;
-        let y = level * levelHeight + nodeRadius + 10;
+        let x = (left + right) / 2; // center between left and right boundary
+        let y = level * levelHeight + nodeRadius + 10; //how far down based on depth
         positions[node.data] = { x, y, node };
-        calcPos(node.left, level + 1, left, (left + right) / 2);
-        calcPos(node.right, level + 1, (left + right) / 2, right);
+        calcPos(node.left, level + 1, left, (left + right) / 2); // left half
+        calcPos(node.right, level + 1, (left + right) / 2, right); // right half
     }
 
     calcPos(head, 0, 0, canvasWidth);

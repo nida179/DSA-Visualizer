@@ -4,7 +4,7 @@ let head = null; // empty list
 
 function insertAtBeginning(){
     
-    let value = document.getElementById("nodeValue").value;
+    let value = Number(document.getElementById("nodeValue").value);
     let node = {
         data: value,
         next: null
@@ -13,9 +13,10 @@ function insertAtBeginning(){
     head = node; 
     displayList();
     document.getElementById("nodeValue").value = "";
+    document.getElementById("message").innerText = "Node " + value + " inserted!";
 }
 function insertAtEnd(){
-    let value = document.getElementById("nodeValue").value;
+    let value = Number(document.getElementById("nodeValue").value);
     let node = {
         data: value,
         next: null
@@ -24,6 +25,7 @@ function insertAtEnd(){
     head = node;
     displayList();
     document.getElementById("nodeValue").value = "";
+    
     return; // stop here!
 }
     let current = head;
@@ -33,6 +35,7 @@ function insertAtEnd(){
     current.next = node;
     displayList();
     document.getElementById("nodeValue").value = "";
+    document.getElementById("message").innerText = "Node " + value + " inserted!";
 }
 function deleteNode(){
     let value = Number(document.getElementById("nodeValue").value);
