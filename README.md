@@ -3,7 +3,7 @@
 An interactive web-based visualizer for Data Structures and Algorithms, built with HTML, CSS, and JavaScript.
 
 ## Live Demo
-> Coming soon
+> [Live Demo](https://nida179.github.io/DSA-Visualizer/)
 
 ## Preview
 
