@@ -1,7 +1,7 @@
 body{
     background-color: #0f0826;
     text-align: center;
-    color: rgb(168, 168, 168);
+    color: rgba(115, 113, 118, 0.871);
     margin: 0;
     padding: 0;
 }
@@ -104,7 +104,9 @@ body{
     font-size: 20px;
 }
 .bar {
-    width: 60px;
+    flex: 1;
+    max-width: 60px;
+    min-width: 24px;
     background-color: rgb(148, 116, 140);
     color: rgb(0, 0, 0);
     display: flex;
@@ -206,6 +208,7 @@ body{
 /* Stat cards row */
 .stats-row {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     width: 100%;
@@ -241,7 +244,7 @@ body{
     height: 200px;
     flex: 1;
     width: 100%;
-    background-color: #45163d;
+    background-color: #401e3f;
     border-radius: 16px;
     display: flex;
     align-items: flex-end;
@@ -264,4 +267,62 @@ button {
 
 button:hover {
     background-color: #570327;
+}
+
+/* ===== Responsive adjustments ===== */
+
+/* Tablets and smaller laptops */
+@media (max-width: 900px) {
+    .main {
+        padding: 24px;
+    }
+    .container {
+        gap: 10px;
+        padding: 12px;
+    }
+    .stat-card {
+        padding: 10px 18px;
+        min-width: 90px;
+    }
+}
+
+/* Phones and narrow windows — stack sidebar above main instead of side-by-side */
+@media (max-width: 600px) {
+    .layout, .layout.active {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 12px;
+    }
+    .sidebar h3 {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .main {
+        padding: 16px;
+    }
+    .landing-title {
+        font-size: 40px;
+    }
+    .stats-row {
+        gap: 10px;
+    }
+    .stat-card {
+        min-width: 80px;
+        padding: 8px 14px;
+    }
+    .stat-value {
+        font-size: 18px;
+    }
+    .bar {
+        min-width: 16px;
+    }
+    .container {
+        gap: 6px;
+    }
 }
