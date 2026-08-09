@@ -1,7 +1,7 @@
 body{
     background-color: #0f0826;
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: rgb(168, 168, 168);
     margin: 0;
     padding: 0;
 }
@@ -112,6 +112,7 @@ body{
     justify-content: center;
     font-size: 12px;
     padding-bottom: 4px;
+    border-radius: 6px 6px 0 0;
 }
 .sidebar {
     width: 200px;
@@ -134,18 +135,25 @@ body{
     background-color: transparent;
     color: white;
     border: none;
-    border-left: 3px solid rgb(141, 41, 122);
-    border-radius: 0;
+    border-radius: 20px;
     text-align: left;
     padding: 10px 15px;
     cursor: pointer;
     font-size: 14px;
-    margin-bottom: 0;   
+    margin-bottom: 0;
+    transition: background-color 0.2s ease;
 }
 
 .algo-btn:hover {
     background-color: rgba(141, 41, 122, 0.2);
 }
+
+/* Pill highlight for whichever algorithm is currently active */
+.algo-btn.active {
+    background-color: rgba(141, 41, 122, 0.45);
+    color: rgb(255, 255, 255);
+}
+
 .main {
     flex: 1;
     padding: 40px;
@@ -184,32 +192,64 @@ body{
 
 .top-bar {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     align-items: flex-start;
     width: 100%;
+    gap: 20px;
 }
 
 .title-section {
     text-align: center;
-    width: 100%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
+    flex: 1;
 }
 
+/* Stat cards row */
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.stat-card {
+    background-color: #1a1a2e;
+    border-radius: 14px;
+    padding: 12px 28px;
+    min-width: 110px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+    margin: 0;
+    font-size: 13px;
+    color: #b5acac;
+}
+
+.stat-value {
+    margin: 4px 0 0 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Pastel accent per stat, subtle text tint only — keeps the dark card background */
+.stat-card.comparisons .stat-value { color: #9be29b; }
+.stat-card.swaps .stat-value { color: #9ec5f5; }
+.stat-card.passes .stat-value { color: #e2a6e0; }
 
 .container{
     height: 200px;
     flex: 1;
     width: 100%;
-    border: 5px solid #0f0826;
+    background-color: #45163d;
+    border-radius: 16px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     gap: 20px;
     padding: 20px;
     box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
 button {
     padding: 10px 20px;
